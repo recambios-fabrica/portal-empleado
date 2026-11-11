@@ -336,7 +336,7 @@
         let user = null;
         try { user = await (await realFetch(URL0 + '/auth/v1/user', { headers: { apikey: KEY, Authorization: 'Bearer ' + h.get('access_token') } })).json(); } catch (e) {}
         keepSession({ access_token: h.get('access_token'), refresh_token: h.get('refresh_token'), expires_at: +h.get('expires_at') || 0, expires_in: +h.get('expires_in') || 3600, user });
-        recovering = h.get('type') === 'recovery';
+        recovering = ['recovery', 'invite'].includes(h.get('type'));
       }
       history.replaceState(null, '', location.pathname + location.search);
     } else if (/error_description=/.test(location.hash)) {
