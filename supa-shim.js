@@ -123,7 +123,7 @@
         m.style.color = '#1a7f37'; m.textContent = 'Listo. Si el correo está dado de alta, en unos minutos te llegará un correo con el enlace. Revisa también el correo no deseado.';
       } catch (x) {
         m.style.color = '#b42318';
-        m.textContent = /rate|limit/i.test(x.message) ? 'Se han pedido demasiados enlaces. Espera un rato y vuelve a intentarlo.' : /not authorized/i.test(x.message) ? 'El envío de correos aún no está configurado. Pide al administrador que te cambie la contraseña.' : 'No se pudo enviar: ' + x.message;
+        m.textContent = /rate|limit/i.test(x.message) ? 'Ya se han enviado los correos permitidos en esta hora. Espera alrededor de una hora y vuelve a pedirlo; usa solo el enlace del último correo.' : /not authorized/i.test(x.message) ? 'El envío de correos aún no está configurado. Pide al administrador que te cambie la contraseña.' : 'No se pudo enviar: ' + x.message;
       }
     };
   }
